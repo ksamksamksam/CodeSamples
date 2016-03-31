@@ -1,0 +1,312 @@
+\hypertarget{class_ray_tracer}{
+\section{RayTracer Class Reference}
+\label{class_ray_tracer}\index{RayTracer@{RayTracer}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ray_tracer_abdb2a1446a998ce13c7458d3220a3e98}{
+{\bfseries RayTracer} (int w, int h, int md)}
+\label{class_ray_tracer_abdb2a1446a998ce13c7458d3220a3e98}
+
+\item 
+\hypertarget{class_ray_tracer_a41378f964e6aec24f6923c9032d36b24}{
+{\bfseries RayTracer} (const \hyperlink{class_ray_tracer}{RayTracer} \&r)}
+\label{class_ray_tracer_a41378f964e6aec24f6923c9032d36b24}
+
+\item 
+void \hyperlink{class_ray_tracer_a668b4df1e86fca21aeffa7d76627274c}{addObject} (int type, \hyperlink{classvec3}{vec3} pos, double scale, \hyperlink{struct_material}{Material} mat, \hyperlink{classvec3}{vec3} axis, double angle)
+\item 
+void \hyperlink{class_ray_tracer_af009cebc70c4004b435fb5b0681f3a0f}{addLight} (\hyperlink{classvec3}{vec3} pos, \hyperlink{classvec3}{vec3} color)
+\item 
+void \hyperlink{class_ray_tracer_a6f58f6b9e85d891a94922b2ee4d27517}{setDefaultScene} ()
+\item 
+void \hyperlink{class_ray_tracer_acd65d366cf556539fcbd2a16a2cb6195}{writeImage} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ray_tracer_add488290127f3d2c26d25111826d2b1a}{
+int {\bfseries height}}
+\label{class_ray_tracer_add488290127f3d2c26d25111826d2b1a}
+
+\item 
+\hypertarget{class_ray_tracer_adf27eeb67a55ba584d4f4ff2bada46bc}{
+int {\bfseries width}}
+\label{class_ray_tracer_adf27eeb67a55ba584d4f4ff2bada46bc}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvec3}{vec3} \hyperlink{class_ray_tracer_a3878c7f9c9d458d80f3f39de14c33faa}{traceRay} (\hyperlink{classvec3}{vec3} start, \hyperlink{classvec3}{vec3} ray, int depth)
+\item 
+double \hyperlink{class_ray_tracer_aec57469a84172a07a4429227e28996c8}{planeCollision} (\hyperlink{classvec3}{vec3} origin, \hyperlink{classvec3}{vec3} direction, \hyperlink{class_object}{Object} $\ast$p)
+\item 
+double \hyperlink{class_ray_tracer_a2e0bfeff38e48b4c91bd217d253e0634}{sphereCollision} (\hyperlink{classvec3}{vec3} origin, \hyperlink{classvec3}{vec3} direction, \hyperlink{class_object}{Object} $\ast$s)
+\item 
+double \hyperlink{class_ray_tracer_ad37e981f7a2fe1cd5670c466ebb6a5fa}{intersectTest} (\hyperlink{classvec3}{vec3} start, \hyperlink{classvec3}{vec3} ray, \hyperlink{class_object}{Object} $\ast$obj)
+\item 
+\hyperlink{classvec3}{vec3} \hyperlink{class_ray_tracer_a2a06e559aef050bfd857c9a6594f2477}{refract} (\hyperlink{classvec3}{vec3} ray, \hyperlink{classvec3}{vec3} normal, double IOR1, double IOR2)
+\item 
+\hyperlink{classvec3}{vec3} \hyperlink{class_ray_tracer_a9b9b31a6ce3cc64d04d7bf57b8f3db94}{clamp} (\hyperlink{classvec3}{vec3} v)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ray_tracer_a979465723089fc77b25619a8449a0c5c}{
+std::vector$<$ \hyperlink{class_object}{Object} $\ast$ $>$ {\bfseries objects}}
+\label{class_ray_tracer_a979465723089fc77b25619a8449a0c5c}
+
+\item 
+\hypertarget{class_ray_tracer_a511758fa4a2091c0951614753a4dd958}{
+std::vector$<$ \hyperlink{struct_light}{Light} $\ast$ $>$ {\bfseries lights}}
+\label{class_ray_tracer_a511758fa4a2091c0951614753a4dd958}
+
+\item 
+\hypertarget{class_ray_tracer_afdb832d87beded4755f283b0f2a5eaeb}{
+int {\bfseries maxDepth}}
+\label{class_ray_tracer_afdb832d87beded4755f283b0f2a5eaeb}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ray_tracer_af009cebc70c4004b435fb5b0681f3a0f}{
+\index{RayTracer@{RayTracer}!addLight@{addLight}}
+\index{addLight@{addLight}!RayTracer@{RayTracer}}
+\subsubsection[{addLight}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::addLight (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ pos, }
+\item[{{\bf vec3}}]{ color}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_tracer_af009cebc70c4004b435fb5b0681f3a0f}
+addLight
+
+Add a light with the given properties to the scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position of the light \\
+\hline
+{\em color} & Color of the light \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_ray_tracer_a668b4df1e86fca21aeffa7d76627274c}{
+\index{RayTracer@{RayTracer}!addObject@{addObject}}
+\index{addObject@{addObject}!RayTracer@{RayTracer}}
+\subsubsection[{addObject}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::addObject (
+\begin{DoxyParamCaption}
+\item[{int}]{ type, }
+\item[{{\bf vec3}}]{ pos, }
+\item[{double}]{ scale, }
+\item[{{\bf Material}}]{ mat, }
+\item[{{\bf vec3}}]{ axis, }
+\item[{double}]{ angle}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_tracer_a668b4df1e86fca21aeffa7d76627274c}
+addObject
+
+Creates an object with the given properties and adds it to the object list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of object (either SPHERE or PLANE) \\
+\hline
+{\em pos} & Position of the object \\
+\hline
+{\em scale} & Scale of the object \\
+\hline
+{\em mat} & \hyperlink{struct_material}{Material} belonging to the object \\
+\hline
+{\em axis} & Axis of rotation \\
+\hline
+{\em angle} & Angle of rotation \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_ray_tracer_a9b9b31a6ce3cc64d04d7bf57b8f3db94}{
+\index{RayTracer@{RayTracer}!clamp@{clamp}}
+\index{clamp@{clamp}!RayTracer@{RayTracer}}
+\subsubsection[{clamp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec3} RayTracer::clamp (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_tracer_a9b9b31a6ce3cc64d04d7bf57b8f3db94}
+clamp
+
+Clamps the given vector to the range \mbox{[}0,1\mbox{]}. Used for colors so that blown out areas or negative color values will not result in an unexpected color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector to be clamped$\backslash$\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The clamped vector 
+\end{DoxyReturn}
+\hypertarget{class_ray_tracer_ad37e981f7a2fe1cd5670c466ebb6a5fa}{
+\index{RayTracer@{RayTracer}!intersectTest@{intersectTest}}
+\index{intersectTest@{intersectTest}!RayTracer@{RayTracer}}
+\subsubsection[{intersectTest}]{\setlength{\rightskip}{0pt plus 5cm}double RayTracer::intersectTest (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ start, }
+\item[{{\bf vec3}}]{ ray, }
+\item[{{\bf Object} $\ast$}]{ obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_tracer_ad37e981f7a2fe1cd5670c466ebb6a5fa}
+intersectTest
+
+Checks whether the given ray intersects with the given object. If it does, return the intersection distance; if not return -\/1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Origin of ray \\
+\hline
+{\em ray} & Direction of ray \\
+\hline
+{\em obj} & We are checking this object for an intersection\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double p such that \mbox{[} origin + p $\ast$ direction.normalized = point of intersection \mbox{]} if an intersection exists -\/1 if there is no intersection 
+\end{DoxyReturn}
+\hypertarget{class_ray_tracer_aec57469a84172a07a4429227e28996c8}{
+\index{RayTracer@{RayTracer}!planeCollision@{planeCollision}}
+\index{planeCollision@{planeCollision}!RayTracer@{RayTracer}}
+\subsubsection[{planeCollision}]{\setlength{\rightskip}{0pt plus 5cm}double RayTracer::planeCollision (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ origin, }
+\item[{{\bf vec3}}]{ direction, }
+\item[{{\bf Object} $\ast$}]{ p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_tracer_aec57469a84172a07a4429227e28996c8}
+planeCollision
+
+Calculates the intersection point of a ray with the given origin and direction with the given Plane.
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & Origin of ray \\
+\hline
+{\em direction} & Direction of ray \\
+\hline
+{\em p} & Collision plane\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double p such that \mbox{[} origin + p $\ast$ direction.normalized = point of intersection \mbox{]} if an intersection exists -\/1 if there is no intersection 
+\end{DoxyReturn}
+\hypertarget{class_ray_tracer_a2a06e559aef050bfd857c9a6594f2477}{
+\index{RayTracer@{RayTracer}!refract@{refract}}
+\index{refract@{refract}!RayTracer@{RayTracer}}
+\subsubsection[{refract}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec3} RayTracer::refract (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ ray, }
+\item[{{\bf vec3}}]{ normal, }
+\item[{double}]{ IOR1, }
+\item[{double}]{ IOR2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_tracer_a2a06e559aef050bfd857c9a6594f2477}
+refract
+
+Calculates the refracted ray of the given ray at the given normal, through substances having the given indices of refraction,
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & Ray that we want to refract \\
+\hline
+{\em normal} & Normal which we are using as our refraction pivot \\
+\hline
+{\em IOR1} & The index of refraction of the first substance \\
+\hline
+{\em IOR2} & The index of refraction of the second substance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The refracted ray 
+\end{DoxyReturn}
+\hypertarget{class_ray_tracer_a6f58f6b9e85d891a94922b2ee4d27517}{
+\index{RayTracer@{RayTracer}!setDefaultScene@{setDefaultScene}}
+\index{setDefaultScene@{setDefaultScene}!RayTracer@{RayTracer}}
+\subsubsection[{setDefaultScene}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::setDefaultScene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_tracer_a6f58f6b9e85d891a94922b2ee4d27517}
+setDefaultScene
+
+Sets up a simple Cornell Box scene with one red wall, one green wall, a blue-\/green specular sphere, and a mirror sphere. This is where one would go to manipulate the scene and try different combinations. \hypertarget{class_ray_tracer_a2e0bfeff38e48b4c91bd217d253e0634}{
+\index{RayTracer@{RayTracer}!sphereCollision@{sphereCollision}}
+\index{sphereCollision@{sphereCollision}!RayTracer@{RayTracer}}
+\subsubsection[{sphereCollision}]{\setlength{\rightskip}{0pt plus 5cm}double RayTracer::sphereCollision (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ origin, }
+\item[{{\bf vec3}}]{ direction, }
+\item[{{\bf Object} $\ast$}]{ s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_tracer_a2e0bfeff38e48b4c91bd217d253e0634}
+sphereCollision
+
+Calculates the intersection point of a ray with the given origin and direction with the given Sphere.
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & Origin of ray \\
+\hline
+{\em direction} & Direction of ray \\
+\hline
+{\em s} & Collision sphere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double p such that \mbox{[} origin + p $\ast$ direction.normalized = point of intersection \mbox{]} if an intersection exists -\/1 if there is no intersection 
+\end{DoxyReturn}
+\hypertarget{class_ray_tracer_a3878c7f9c9d458d80f3f39de14c33faa}{
+\index{RayTracer@{RayTracer}!traceRay@{traceRay}}
+\index{traceRay@{traceRay}!RayTracer@{RayTracer}}
+\subsubsection[{traceRay}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec3} RayTracer::traceRay (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{ start, }
+\item[{{\bf vec3}}]{ ray, }
+\item[{int}]{ depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_tracer_a3878c7f9c9d458d80f3f39de14c33faa}
+traceRay
+
+This is the meat of our program. Takes a start position, a direction vector, and a depth number as input and outputs the color value at the final resting point of the ray. The method is only allowed to recurse maxDepth times, at which point it returns black as the output color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Origin of our ray \\
+\hline
+{\em ray} & Direction vector of our ray \\
+\hline
+{\em depth} & Number of times we have recursively called traceRay \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_ray_tracer_acd65d366cf556539fcbd2a16a2cb6195}{
+\index{RayTracer@{RayTracer}!writeImage@{writeImage}}
+\index{writeImage@{writeImage}!RayTracer@{RayTracer}}
+\subsubsection[{writeImage}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::writeImage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_tracer_acd65d366cf556539fcbd2a16a2cb6195}
+writeImage
+
+Writes the raytraced image to the file defined by OUTPUT\_\-IMAGE and prints out its progress as it goes along. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+raytracer\_\-revised/raytracer\_\-revised/raytracer.h\item 
+raytracer\_\-revised/raytracer\_\-revised/raytracer.cpp\end{DoxyCompactItemize}
