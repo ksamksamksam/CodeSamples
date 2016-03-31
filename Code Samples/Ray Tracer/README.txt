@@ -13,6 +13,8 @@ The application processes two primitives: spheres and planes.  Each object conta
 
 The objects and materials in the scene can be changed in the setDefaultScene() method in the RayTracer class.  Currently it is a Cornell box containing two spheres.
 
+The code was written in 2010 in C++.
+
 
 CLASS AND STRUCT DESCRIPTIONS
 
@@ -32,8 +34,3 @@ EasyBMP: This is an image processing library that I used to write the pixel info
 algebra3.h: This is a version of the vector and matrix math library found in NVidia's "Graphics Gems IV" which has been modified by J. Nagle.
 
 Both libraries are open source.
-
-
-
-
-See attached documentation for more details.  Thank you for reading my code!  
