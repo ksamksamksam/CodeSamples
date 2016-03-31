@@ -85,7 +85,7 @@ public class BehaviorScript : MonoBehaviour {
     Vector3 CalculateTorque(Vector3 dvel)
     {    
         // 1. Get current rotation matrix
-         Matrix4x4 currRot = MatrixFromQuaternion(rigidbody.rotation);  
+        Matrix4x4 currRot = MatrixFromQuaternion(rigidbody.rotation);  
     
         // 2. Construct desired rotation matrix 
         // (This corresponds to facing in the direction of our desired velocity)
