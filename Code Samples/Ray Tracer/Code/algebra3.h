@@ -1,22 +1,22 @@
 /****************************************************************
- *																*
- * C++ Vector and Matrix Algebra routines						*
- * Author: Jean-Francois DOUE									*
- * Version 3.1 --- October 1993									*
- *																*
+ *                                                              *
+ * C++ Vector and Matrix Algebra routines                       *
+ * Author: Jean-Francois DOUE                                   *
+ * Version 3.1 --- October 1993                                 *
+ *                                                              *
  ****************************************************************/
 //
-//	From "Graphics Gems IV / Edited by Paul S. Heckbert
-//	Academic Press, 1994, ISBN 0-12-336156-9
-//	"You are free to use and modify this code in any way
-//	you like." (p. xv)
+//  From "Graphics Gems IV / Edited by Paul S. Heckbert
+//  Academic Press, 1994, ISBN 0-12-336156-9
+//  "You are free to use and modify this code in any way
+//  you like." (p. xv)
 //
-//	Modified by J. Nagle, March 1997
-//	-	All functions are inline.
-//	-	All functions are const-correct.
-//	-	All checking is via the standard "assert" macro.
-//	-	Stream I/O is disabled for portability, but can be
-//		re-enabled by defining ALGEBRA3IOSTREAMS.
+//  Modified by J. Nagle, March 1997
+//  -   All functions are inline.
+//  -   All functions are const-correct.
+//  -   All checking is via the standard "assert" macro.
+//  -   Stream I/O is disabled for portability, but can be
+//      re-enabled by defining ALGEBRA3IOSTREAMS.
 //
 #ifndef ALGEBRA3H
 #define ALGEBRA3H
@@ -37,7 +37,7 @@ typedef double (*V_FCT_PTR)(double);
 #define MIN(A,B) ((A) < (B) ? (A) : (B))
 #define MAX(A,B) ((A) > (B) ? (A) : (B))
 
-#undef min					// allow as function names
+#undef min                  // allow as function names
 #undef max
 
 #define ALGEBRA3IOSTREAMS
@@ -66,17 +66,17 @@ enum {
     KA, KD, KS, ES
 }; // phong coefficients
 //
-//	PI
+//  PI
 //
-//const double M_PI = (double) 3.14159265358979323846;		// per CRC handbook, 14th. ed.
-//const double M_PI_2 = (M_PI/2.0);				// PI/2
-//const double M2_PI = (M_PI*2.0);				// PI*2
+//const double M_PI = (double) 3.14159265358979323846;      // per CRC handbook, 14th. ed.
+//const double M_PI_2 = (M_PI/2.0);             // PI/2
+//const double M2_PI = (M_PI*2.0);              // PI*2
 
 
 /****************************************************************
- *																*
- *			    2D Vector										*
- *																*
+ *                                                              *
+ *              2D Vector                                       *
+ *                                                              *
  ****************************************************************/
 
 class vec2 {
@@ -143,9 +143,9 @@ public:
 };
 
 /****************************************************************
- *																*
- *			    3D Vector										*
- *																*
+ *                                                              *
+ *              3D Vector                                       *
+ *                                                              *
  ****************************************************************/
 
 class vec3 {
@@ -218,9 +218,9 @@ public:
 };
 
 /****************************************************************
- *																*
- *			    4D Vector										*
- *																*
+ *                                                              *
+ *              4D Vector                                       *
+ *                                                              *
  ****************************************************************/
 
 class vec4 {
@@ -288,9 +288,9 @@ public:
 };
 
 /****************************************************************
- *																*
- *			   3x3 Matrix										*
- *																*
+ *                                                              *
+ *             3x3 Matrix                                       *
+ *                                                              *
  ****************************************************************/
 
 class mat3 {
@@ -348,9 +348,9 @@ public:
 };
 
 /****************************************************************
- *																*
- *			   4x4 Matrix										*
- *																*
+ *                                                              *
+ *             4x4 Matrix                                       *
+ *                                                              *
  ****************************************************************/
 
 class mat4 {
@@ -408,9 +408,9 @@ public:
 };
 
 /****************************************************************
- *																*
- *	       2D functions and 3D functions						*
- *																*
+ *                                                              *
+ *         2D functions and 3D functions                        *
+ *                                                              *
  ****************************************************************/
 
 mat3 identity2D(); // identity 2D
@@ -424,13 +424,13 @@ mat4 scaling3D(const vec3& scaleVector); // scaling 3D
 mat4 perspective3D(const double d); // perspective 3D
 
 //
-//	Implementation
+//  Implementation
 //
 
 /****************************************************************
- *																*
- *		    vec2 Member functions								*
- *																*
+ *                                                              *
+ *          vec2 Member functions                               *
+ *                                                              *
  ****************************************************************/
 
 // CONSTRUCTORS
@@ -640,9 +640,9 @@ inline vec2 prod(const vec2& a, const vec2& b) {
 }
 
 /****************************************************************
- *																*
- *		    vec3 Member functions								*
- *																*
+ *                                                              *
+ *          vec3 Member functions                               *
+ *                                                              *
  ****************************************************************/
 
 // CONSTRUCTORS
@@ -886,9 +886,9 @@ inline vec3 prod(const vec3& a, const vec3& b) {
 }
 
 /****************************************************************
- *																*
- *		    vec4 Member functions								*
- *																*
+ *                                                              *
+ *          vec4 Member functions                               *
+ *                                                              *
  ****************************************************************/
 
 // CONSTRUCTORS
@@ -1109,9 +1109,9 @@ inline vec4 prod(const vec4& a, const vec4& b) {
 }
 
 /****************************************************************
- *																*
- *		    mat3 member functions								*
- *																*
+ *                                                              *
+ *          mat3 member functions                               *
+ *                                                              *
  ****************************************************************/
 
 // CONSTRUCTORS
@@ -1290,9 +1290,9 @@ inline void swap(mat3& a, mat3& b) {
 }
 
 /****************************************************************
- *																*
- *		    mat4 member functions								*
- *																*
+ *                                                              *
+ *          mat4 member functions                               *
+ *                                                              *
  ****************************************************************/
 
 // CONSTRUCTORS
@@ -1486,9 +1486,9 @@ inline void swap(mat4& a, mat4& b) {
 }
 
 /****************************************************************
- *																*
- *	      			 Mathematica Functions          			*
- *																*
+ *                                                              *
+ *                   Mathematica Functions                      *
+ *                                                              *
  ****************************************************************/
 inline mat3 List(vec3 v0, vec3 v1, vec3 v2) { return mat3(v0, v1, v2); }
 inline vec3 List(double s0, double s1, double s2) { return vec3(s0, s1, s2); }
@@ -1497,9 +1497,9 @@ inline double Power(double value, double exp) { return pow(value, exp); }
 inline double Sqrt(double value) { return sqrt(value); }
 
 /****************************************************************
- *																*
- *	       2D functions and 3D functions						*
- *																*
+ *                                                              *
+ *         2D functions and 3D functions                        *
+ *                                                              *
  ****************************************************************/
 
 inline mat3 identity2D() {

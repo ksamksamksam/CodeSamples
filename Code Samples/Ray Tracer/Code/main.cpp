@@ -1,6 +1,6 @@
 /****************************************************************
- * @file															
- * @author  Samantha Raja <ksam@seas.upenn.edu>									
+ * @file                                                            
+ * @author  Samantha Raja <ksam@seas.upenn.edu>                                 
  * @date  Summer 2010
  *
  * @section DESCRIPTION
@@ -12,7 +12,7 @@
 #include "raytracer.h"
 
 int main(int argc, char **argv){
-	RayTracer r(500,500, 3);
-	r.setDefaultScene();
-	r.writeImage();
+    RayTracer r(500,500, 3);
+    r.setDefaultScene();
+    r.writeImage();
 }
